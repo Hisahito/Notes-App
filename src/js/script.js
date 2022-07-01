@@ -54,3 +54,46 @@ function showNotes() {
 }
 
 showNotes();
+
+function deleteNote(Noteid) {
+    allNotes.splice(Noteid, 1);
+    localStorage.setItem("allNotes", JSON.stringify(allNotes));
+    showNotes();
+};
+
+function editNote(Noteid, title, filtDesc) {
+    let desc = filtDesc.replaceAll("<br/>", "\r\n");
+    updateId = Noteid;
+    isUpdate = true;
+    ShowNoteBtn.click();
+    note_title_input.value = title;
+    note_desc_input.value = desc;
+};
+
+closeIcon.addEventListener('click', e => {
+    e.preventDefault();
+    let noteTitle = note_title_input.value;
+    let noteDesc = note_desc_input.value;
+
+    if (noteTitle || noteDesc) {
+        let date = new Date();
+        month = months[date.getMonth()];
+        day = date.getDate();
+        year = date.getFullYear();
+
+        let noteInfo = {
+            title: noteTitle,
+            description: noteDesc,
+            date: `${month} ${day} ${year}`
+        }
+        if(!isUpdate) {
+            allNotes.push(noteInfo);
+        }else {
+            allNotes[updateId] = noteInfo;
+            isUpdate = false;
+        }
+
+        localStorage.setItem("allNotes", JSON.stringify(allNotes));
+        showNotes();
+    }
+});
