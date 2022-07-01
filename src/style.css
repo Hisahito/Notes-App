@@ -1,7 +1,92 @@
-html, body {
+@import url('https://fonts.googleapis.com/css2?family-Ninito:wght@300;400&display=swap');
+*{
     margin: 0;
-    background-color: #ddd;
+    padding: 0;
+    box-sizing: border-box;
 }
-img {
-    width: 150px;
+
+body {
+    background-color: orange;
+    font-family: 'Nunito', sans-serif;
+}
+
+.container {
+    height: 500px;
+    width: 320px;
+    background-color: #F5F5F5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.note-box{
+    height: 500px;
+    width: 100%;
+    position: absolute;
+    overflow-y: scroll;
+}
+
+.add-note-btn {
+    all: unset;
+    background: orange;
+    border-radius: 100%;
+    position: fixed;
+    top: 85%;
+    right: 25px;
+    color: white;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.note {
+    height: 110px;
+    width: 90%;
+    position: relative;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 5px;
+    margin-bottom: 10px; 
+}
+
+.note-title, .note-body {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 15px;
+    font-size: 17px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.note-body {
+    color: gray;
+    font-size: 15px;
+    top: 18px;
+}
+
+.date, .fa-ellipsis {
+    position: absolute;
+    left: 17%;
+    bottom: 0;
+    transform: translate(-50%, -50%);
+    color: gray;
+    font-size: 11px;
+}
+
+hr {
+    margin-top: 30px;
 }
